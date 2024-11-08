@@ -1,0 +1,9 @@
+@font-face{
+    font-family: "cwp_font";
+    src: "/home/jordan/cw_painting/cwp_assets";
+}
+
+body{
+    font-family: "cwp_font";
+    background-color: lightcyan;
+}
