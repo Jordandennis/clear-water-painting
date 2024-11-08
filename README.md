@@ -1,0 +1,1 @@
+The website for Clear Water Painting is intended to improve the overall customer satisfaction of their painting job by creating an enjoyable, efficient and esthetically pleasing evironment for the client to interface with from the estimate phase right through to the final payment and touch ups!
