@@ -1,10 +1,12 @@
-@font-face{
-    font-family: "cwp_font";
-    src: "/home/jordan/cw_painting/cwp_assets";
+@font-face {
+    font-family: ClearWater, sans-serif;
+    src: url('ClearWater.otf');
 }
 
+h1{
+    color:lightblue;
+}
 body{
-    font-family: "cwp_font";
-    background-color: lightcyan;
-    background-image: "/home/jordan/cw_painting/cwp_assets/cwp_logo.jpeg";
+    background-image:url("/images/Ocean.jpg");
+    font-family: ClearWater
 }
