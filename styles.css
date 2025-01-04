@@ -1,12 +1,56 @@
 @font-face {
-    font-family: ClearWater, sans-serif;
-    src: url('ClearWater.otf');
+    font-family: 'ClearWater';
+    src: url('fonts/ClearWater.ttf');
+    src: local('ClearWater'),
+        url('fonts/ClearWater.eot'),
+        url('fonts/ClearWater.woff');
 }
 
 h1{
-    color:lightblue;
+    color:white;
 }
+html{
+    background: url(/images/Ocean.jpg) no-repeat center fixed;
+    background-size: cover;
+    font-family: 'ClearWater';
+}
+
 body{
-    background-image:url("/images/Ocean.jpg");
-    font-family: ClearWater
+    font-family: 'ClearWater';
+}
+
+.logo{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background-color: white;
+    opacity: 0.3;
+}
+
+.Top_text{
+    font-size:80px;
+    text-align: center; 
+    text-shadow: 0px 3px rgba(8, 123, 255, 0.4);
+    color: white;
+}
+
+h1{
+    position: absolute;
+    width:100%;
+    top: 15%;
+}
+
+
+
+.Bot_text{
+    font-size: 80px;
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: 0px 3px rgba(24, 132, 255, 0.986);
+}
+
+h2{
+    position: absolute;
+    width:100%;
+    bottom: 15%;
 }
