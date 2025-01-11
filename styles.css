@@ -6,9 +6,7 @@
         url('fonts/ClearWater.woff');
 }
 
-h1{
-    color:white;
-}
+
 html{
     background: url(/images/Ocean.jpg) no-repeat center fixed;
     background-size: cover;
@@ -19,20 +17,6 @@ body{
     font-family: 'ClearWater';
 }
 
-.logo{
-    position: absolute;
-    top: 25px;
-    left: 25px;
-    background-color: white;
-    opacity: 0.3;
-}
-
-.Top_text{
-    font-size:80px;
-    text-align: center; 
-    text-shadow: 0px 3px rgba(8, 123, 255, 0.4);
-    color: white;
-}
 
 h1{
     position: absolute;
@@ -40,17 +24,40 @@ h1{
     top: 15%;
 }
 
-
-
-.Bot_text{
-    font-size: 80px;
-    text-align: center;
-    color: whitesmoke;
-    text-shadow: 0px 3px rgba(24, 132, 255, 0.986);
-}
-
 h2{
     position: absolute;
     width:100%;
     bottom: 15%;
+}
+
+
+#logo{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    border-radius: 100px;
+    background-color: rgba(255, 255, 255, 0.37);
+    
+}
+
+#main_logo{
+    padding: 0px;
+    border: 10px;
+    margin: 0px;
+}
+
+
+
+.Top_text{
+    font-size: 6vw;
+    text-align: center; 
+    text-shadow: 0px 3px rgba(8, 123, 255, 0.4);
+    color: white;
+}
+
+.Bot_text{
+    font-size: 6vw;
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: 0px 3px rgba(24, 132, 255, 0.986);
 }
