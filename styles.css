@@ -1,4 +1,19 @@
+/*
+MAIN STYLE SHEET FOR CLEAR WATER PAINTING WEBSITE
+Author: Jordan Dennis
+Most Recent Update: January 12th, 2025
+
+This is the style sheet for Clear Water Painting. The intent is to create a stand alone, interactive home page. The interactivity of this page is that the cursor, as it moves around the page, will reveal a different page below the main landing page.
+*/
+
+
+/*
+This section is to import any non-standard fonts to be used throughout the website
+*/
 @font-face {
+    /*
+    This is a custom font commisioned specifically for the website. Therefore, the font is stored with the website inside the 'fonts' folder
+    */
     font-family: 'ClearWater';
     src: url('fonts/ClearWater.ttf');
     src: local('ClearWater'),
@@ -6,49 +21,76 @@
         url('fonts/ClearWater.woff');
 }
 
-
+/*
+This section covers page wide style
+*/
 html{
+    /*
+    This is the style section for the main page background
+    */
     background: url(/images/Ocean.jpg) no-repeat center fixed;
     background-size: cover;
     font-family: 'ClearWater';
 }
 
 body{
+    /*
+    Unify page-wide default font
+    */
     font-family: 'ClearWater';
 }
 
-
+/*
+This is the style section for the main page headers
+*/
 h1{
+    /*
+    Top text for main landing page "DON'T PAINT"
+    */
     position: absolute;
     width:100%;
     top: 15%;
+    display: inline-block;
+
 }
 
 h2{
+    /*
+    Bottom text for main landing page "OVER YOUR VACATION"
+    */
     position: absolute;
     width:100%;
     bottom: 15%;
 }
 
 
+/*
+This section covers sepcific elements of the main landing page
+*/
 #logo{
     position: absolute;
     top: 25px;
     left: 25px;
     border-radius: 100px;
     background-color: rgba(255, 255, 255, 0.37);
+    box-sizing: border-box;
+    
     
 }
 
-#main_logo{
-    padding: 0px;
-    border: 10px;
-    margin: 0px;
+#logo:hover{  
+    cursor:pointer;
+    background-color:rgba(255, 255, 255, 0.5);
+    box-shadow: 1px;
+    box-shadow: 0 4px 6px rgba(12, 12, 12, 0.144);
+    transition: box-shadow 0.15s, background-color 0.15s;
 }
 
 
-
-.Top_text{
+/*
+This section covers main page classes
+*/
+.Top_text{  
     font-size: 6vw;
     text-align: center; 
     text-shadow: 0px 3px rgba(8, 123, 255, 0.4);
