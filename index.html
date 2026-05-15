@@ -1,58 +1,44 @@
-<!--
-HTML FILE FOR MAIN LANDING PAGE OF CLEAR WATER PAINTING
-Author: Jordan Dennis
-Most Recent Update: January 12th, 2025
-
--->
-
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="en">
 
-<!--
-Head initialization
--->
 <head>
     <title> Clear Water Painting</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/images/Clear_Water_Painting-A_edited.png">
-    <script src="app.js"></script>
     
 </head>
 
-
-
 <body>
 
-    <!--   
-    Header logo to direct user to main page   
-    -->
-    <div id="logo">
-        <a href="/"> 
-            <img id="main_logo" src= "/images/Clear_Water_Painting-A_edited.png" \
-            alt="Clear Water Painting Logo" width="150px" hieght="150px" \> 
-        </a>
+    <div class="header">
+        <div class="logo">
+            <a href="/"> 
+                <img id="main_logo" src= "/images/Clear_Water_Painting-A_edited.png"
+                alt="Clear Water Painting Logo" width=150 height="150"> 
+            </a>
+        </div>
+        <div class="menu" id="hamburger-menu"> 
+            <div class="bar" id="bar1"></div>
+            <div class="bar" id="bar2"></div>
+            <div class="bar" id="bar3"></div>
+        </div>
     </div>
 
+    <div class="content-container" id="content-container-1">
+        <h1>Contatiner 1</h1>
+        <p>Here is some content for the first container! Likely, this will contain a landing block, outlining the key points of the business.</p>
+    </div>
+    <div class="content-container" id="content-container-2">
+        <h1>Container 2</h1>
+        <p>Second container content! This may be "About Us" or "Get a Quote"</p>
+    </div>
 
-    <!--
-    Main page text   
-    -->
-    <h1>
-        <div class="Top_text">
-            Don't Paint
-        </div>
-    </h1>
-
-    <h2>
-        <div class="Bot_text">
-            Over your vacation
-        </div>
-        
-    </h2>
-
-
+    <div class="content-container" id="content-container-3">
+        <div class="top-text">Don't Paint</div>
+        <div class="bot-text">Over your vacation</div>
+    </div>
 
 </body>
 </html>
