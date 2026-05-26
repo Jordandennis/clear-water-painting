@@ -49,7 +49,7 @@ body{
 .bot-text{
     font-size: 6vw;
     text-align: center;
-    color: whitesmoke;
+    color: rgb(24, 21, 21);
     text-shadow: 0 3px rgba(24, 132, 255, 0.986);
 }
 #hamburger-menu{
