@@ -28,7 +28,7 @@ jobs:
           HOST: ${{ secrets.EC2_HOST }}
           USER: ${{ secrets.EC2_USER }}
         run: |
-          echo "$SSH_KEY" > /tmp/deploy_key
+          echo "$SSH_KEY" | base64 -d > /tmp/deploy_key
           chmod 600 /tmp/deploy_key
           scp -i /tmp/deploy_key -o StrictHostKeyChecking=no -r dist/ $USER@$HOST:/tmp/
           ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no $USER@$HOST \
