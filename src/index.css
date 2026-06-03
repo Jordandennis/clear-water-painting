@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'ClearWater';
+  src: local('ClearWater'),
+    url('/fonts/ClearWater.woff') format('woff'),
+    url('/fonts/ClearWater.ttf') format('truetype');
+}
+
+@theme {
+  --font-clearwater: 'ClearWater', Georgia, serif;
+}
