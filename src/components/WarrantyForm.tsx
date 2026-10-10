@@ -51,7 +51,7 @@ export default function WarrantyForm() {
   // Front end representation of form
   return (
     <div className="flex justify-center px-6 py-16">
-      <div className="bg-white/90 rounded-2xl shdow-lg p-8 w-full max-w-lg">
+      <div className="bg-white/90 rounded-2xl shadow-lg p-8 w-full max-w-lg">
         <h2 className="text-2xl font-semibold text-gray-800 mb-2">
           Warranty Request
         </h2>
