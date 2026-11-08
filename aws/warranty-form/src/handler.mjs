@@ -4,17 +4,10 @@ const ses = new SESv2Client({})
 
 const FROM = process.env.FROM_ADDRESS
 const TO = (process.env.TO_ADDRESS ?? '').split(',').map(s => s.trim()).filter(Boolean)
-const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN
-
-const corsHeaders = {
-  'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
-  'Access-Control-Allow-Methods': 'POST,OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-}
 
 const json = (status, body) => ({
   statusCode: status,
-  headers: { 'Content-Type': 'application/json', ...corsHeaders },
+  headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify(body),
 })
 
@@ -28,10 +21,6 @@ const escape = (s) =>
   })[c])
 
 export const handler = async (event) => {
-  if (event.requestContext?.http?.method === 'OPTIONS') {
-    return { statusCode: 204, headers: corsHeaders }
-  }
-
   let data
   try {
     data = JSON.parse(event.body ?? '{}')

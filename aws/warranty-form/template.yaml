@@ -8,10 +8,10 @@ Parameters:
     Description: Verified SES sender address (e.g. noreply@clearwaterpainting.ca)
   ToAddress:
     Type: String
-    Description: Where warranty requests are delivered
-  AllowedOrigin:
-    Type: String
-    Description: Site origin allowed to call this API (e.g. https://clearwaterpainting.ca)
+    Description: Where warranty requests are delivered (comma-separated for multiple)
+  AllowedOrigins:
+    Type: CommaDelimitedList
+    Description: Site origins allowed to call this API
 
 Globals:
   Function:
@@ -30,7 +30,6 @@ Resources:
         Variables:
           FROM_ADDRESS: !Ref FromAddress
           TO_ADDRESS: !Ref ToAddress
-          ALLOWED_ORIGIN: !Ref AllowedOrigin
       Policies:
         - Statement:
             - Effect: Allow
@@ -44,19 +43,12 @@ Resources:
             ApiId: !Ref WarrantyFormApi
             Path: /warranty
             Method: POST
-        Preflight:
-          Type: HttpApi
-          Properties:
-            ApiId: !Ref WarrantyFormApi
-            Path: /warranty
-            Method: OPTIONS
 
   WarrantyFormApi:
     Type: AWS::Serverless::HttpApi
     Properties:
       CorsConfiguration:
-        AllowOrigins:
-          - !Ref AllowedOrigin
+        AllowOrigins: !Ref AllowedOrigins
         AllowMethods: [POST, OPTIONS]
         AllowHeaders: [Content-Type]
 

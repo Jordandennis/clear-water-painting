@@ -7,4 +7,4 @@ resolve_s3 = true
 s3_prefix = "clear-water-warranty-form"
 confirm_changeset = false
 capabilities = "CAPABILITY_IAM"
-parameter_overrides = "FromAddress=\"noreply@clearwaterpainting.ca\" ToAddress=\"info@clearwaterpainting.ca\" AllowedOrigin=\"https://clearwaterpainting.ca\""
+parameter_overrides = "FromAddress=\"noreply@clearwaterpainting.ca\" ToAddress=\"info@clearwaterpainting.ca\" AllowedOrigins=\"https://clearwaterpainting.ca,https://www.clearwaterpainting.ca,http://localhost:5173\""
