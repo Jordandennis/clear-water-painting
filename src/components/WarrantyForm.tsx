@@ -37,13 +37,25 @@ export default function WarrantyForm() {
     setStatus('submitting')
 
     try {
-      const response = await fetch('https://formspree.io/f/mbdbnklq', {
+      const response = await fetch('https://4tglagn5f9.execute-api.us-east-2.amazonaws.com/warranty', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
         body: JSON.stringify(formData),
       })
-      setStatus(response.ok ? 'success' : 'error')
-    } catch {
+
+      if (!response.ok) {
+        const body = await response.text()
+        console.error('Warranty submission failed', response.status, body)
+        setStatus('error')
+        return
+      }
+
+      setStatus('success')
+    } catch (err) {
+      console.error('Warranty submission threw', err)
       setStatus('error')
     }
   }

@@ -1,0 +1,10 @@
+version = 0.1
+
+[default.deploy.parameters]
+stack_name = "clear-water-warranty-form"
+region = "us-east-2"
+resolve_s3 = true
+s3_prefix = "clear-water-warranty-form"
+confirm_changeset = false
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "FromAddress=\"noreply@clearwaterpainting.ca\" ToAddress=\"info@clearwaterpainting.ca\" AllowedOrigin=\"https://clearwaterpainting.ca\""

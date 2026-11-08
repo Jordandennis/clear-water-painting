@@ -1,0 +1,9 @@
+{
+  "name": "warranty-form-handler",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "handler.mjs",
+  "dependencies": {
+    "@aws-sdk/client-sesv2": "^3.651.0"
+  }
+}
