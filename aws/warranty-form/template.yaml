@@ -1,0 +1,58 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Warranty request form - API Gateway -> Lambda -> SES
+
+Parameters:
+  FromAddress:
+    Type: String
+    Description: Verified SES sender address (e.g. noreply@clearwaterpainting.ca)
+  ToAddress:
+    Type: String
+    Description: Where warranty requests are delivered (comma-separated for multiple)
+  AllowedOrigins:
+    Type: CommaDelimitedList
+    Description: Site origins allowed to call this API
+
+Globals:
+  Function:
+    Runtime: nodejs20.x
+    Timeout: 10
+    MemorySize: 256
+    Architectures: [arm64]
+
+Resources:
+  WarrantyFormFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: handler.handler
+      Environment:
+        Variables:
+          FROM_ADDRESS: !Ref FromAddress
+          TO_ADDRESS: !Ref ToAddress
+      Policies:
+        - Statement:
+            - Effect: Allow
+              Action:
+                - ses:SendEmail
+              Resource: '*'
+      Events:
+        Submit:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref WarrantyFormApi
+            Path: /warranty
+            Method: POST
+
+  WarrantyFormApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration:
+        AllowOrigins: !Ref AllowedOrigins
+        AllowMethods: [POST, OPTIONS]
+        AllowHeaders: [Content-Type]
+
+Outputs:
+  ApiEndpoint:
+    Description: POST warranty submissions to this URL
+    Value: !Sub https://${WarrantyFormApi}.execute-api.${AWS::Region}.amazonaws.com/warranty
