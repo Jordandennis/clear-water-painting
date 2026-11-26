@@ -1,6 +1,6 @@
 # Clear Water Painting
 
-![Clear Water Painting logo, created by Kylea Archer](../public/images/Clear_Water_Painting-A_edited.png)
+![Clear Water Painting logo, created by Kylea Archer](public/images/Clear_Water_Painting-A.jpeg)
 
 Landing page for [Clear Water Painting](https://clearwaterpainting.ca), a residential and commercial painting company based in Courtenay, British Columbia.
 
