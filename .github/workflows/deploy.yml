@@ -1,9 +1,18 @@
-name: Deploy to EC2
+name: Deploy to S3 + CloudFront
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  id-token: write   # GitHub OIDC -> AWS, no stored keys
+  contents: read
+
+concurrency:
+  group: deploy-site
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -22,18 +31,11 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to EC2
-        env:
-          SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
-          HOST: ${{ secrets.EC2_HOST }}
-          USER: ${{ secrets.EC2_USER }}
-        run: |
-          echo "$SSH_KEY" | base64 -d > /tmp/deploy_key
-          chmod 600 /tmp/deploy_key
-          scp -i /tmp/deploy_key -o StrictHostKeyChecking=no -r dist/ $USER@$HOST:/tmp/
-          ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no $USER@$HOST \
-            "sudo rm -rf /var/www/html/* && \
-             sudo mv /tmp/dist/* /var/www/html/ && \
-             sudo chown -R www-data:www-data /var/www/html/ && \
-             sudo systemctl reload nginx"
-          rm /tmp/deploy_key
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Publish
+        run: bash aws/static-site/publish.sh "${{ vars.SITE_BUCKET }}" "${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}" dist
