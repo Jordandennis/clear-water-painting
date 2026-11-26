@@ -1,3 +1,5 @@
+# Public defaults. For real deploys keep private recipients in samconfig.local.toml (gitignored):
+#   sam deploy --config-file samconfig.local.toml
 version = 0.1
 
 [default.deploy.parameters]
